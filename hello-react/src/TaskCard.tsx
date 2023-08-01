@@ -10,7 +10,7 @@ interface TaskCardProps {
 
 const TaskCard = (props:TaskCardProps) => {
   let temp : string = "";
-  if(props.dueDate){
+  if(props.completedAtDate){
     temp = `Due on: ${props.dueDate}`;
   }else{
     temp = `Completed on: ${props.completedAtDate}`;
