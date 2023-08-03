@@ -22,6 +22,10 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       }
       addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
+        if(this.state.title==""||this.state.duedate==""||this.state.description==""){
+          window.alert("All fills are mandatory")
+
+        }
         const newTask = {
           title: this.state.title,
           duedate: this.state.duedate,
@@ -50,9 +54,9 @@ descriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
   render(){
     return (
         <form onSubmit={this.addTask}>
-        <input id="todoTitle" type="text" value={this.state.title} onChange={this.titleChanged}/>
-        <input id="todoDueDate" type="date" value={this.state.duedate} onChange={this.dateChanged}/>
-        <input id="todoDescription" type="text" value={this.state.description} onChange={this.descriptionChanged}/>
+        <input id="todoTitle" type="text" required value={this.state.title} onChange={this.titleChanged}/>
+        <input id="todoDueDate" type="date" required value={this.state.duedate} onChange={this.dateChanged}/>
+        <input id="todoDescription" type="text" required value={this.state.description} onChange={this.descriptionChanged}/>
         <button id="addTaskButton" type="submit">Add item</button>
       </form>     
     )
